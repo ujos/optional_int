@@ -42,6 +42,10 @@ namespace std
 
         optional() = default;
 
+        constexpr optional(std::nullopt_t) noexcept
+        {
+        }
+
         constexpr optional(value_type value) noexcept
             : value_(value)
         {

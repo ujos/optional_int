@@ -20,6 +20,17 @@ TEST( OptValue, testSmoke )
     ASSERT_FALSE(v);
     ASSERT_FALSE(v.has_value());
     ASSERT_EQ(2, v.value_or(2));
+
+    v = 3;
+    ASSERT_TRUE(v);
+    ASSERT_TRUE(v.has_value());
+    ASSERT_EQ(3, v.value());
+    ASSERT_EQ(3, v.value_or(2));
+
+    v = std::nullopt;
+    ASSERT_FALSE(v);
+    ASSERT_FALSE(v.has_value());
+    ASSERT_EQ(2, v.value_or(2));
 }
 
 TEST( OptValue, testInterface )

@@ -11,6 +11,8 @@ if(OptValue_INCLUDE_DIR)
     target_include_directories( OptValue INTERFACE "${OptValue_INCLUDE_DIR}" )
 endif()
 
+add_subdirectory( sample )
+
 if (OptValue_WITH_UNIT_TESTS)
     enable_testing()
 
