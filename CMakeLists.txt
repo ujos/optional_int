@@ -4,6 +4,9 @@ project(OptValue)
 
 set (CMAKE_CXX_STANDARD 17)
 
+option (OptValue_WITH_SAMPLES       "Build samples"     ON)
+option (OptValue_WITH_UNIT_TESTS    "Build unit tests"  OFF)
+
 find_path(OptValue_INCLUDE_DIR    "opt_value.h" PATHS "${CMAKE_CURRENT_SOURCE_DIR}/include" )
 
 if(OptValue_INCLUDE_DIR)
@@ -11,7 +14,9 @@ if(OptValue_INCLUDE_DIR)
     target_include_directories( OptValue INTERFACE "${OptValue_INCLUDE_DIR}" )
 endif()
 
-add_subdirectory( sample )
+if (OptValue_WITH_SAMPLES)
+    add_subdirectory( sample )
+endif()
 
 if (OptValue_WITH_UNIT_TESTS)
     enable_testing()
